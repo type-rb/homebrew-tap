@@ -1,27 +1,27 @@
 class Trb < Formula
-  desc "Ruby-shaped typed language that targets Ruby, Go, and TypeScript"
+  desc "Statically typed language that targets Go, Ruby, and TypeScript"
   homepage "https://github.com/type-rb/type-rb"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.1.1/trb_0.1.1_darwin_arm64.tar.gz"
-      sha256 "05d1df1f18f1e996ae688ccca4594c1fab861ec67b6a1d9bc20572edf284566c"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.1.2/trb_0.1.2_darwin_arm64.tar.gz"
+      sha256 "7d7d9c94e6a1b3a82adb06ec6b87b0c07fcd6028db73a35d9476378c825830b6"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.1.1/trb_0.1.1_darwin_amd64.tar.gz"
-      sha256 "d86a2f2bd9b66a66a653b0e5944d68e7057a6869bed1341b8f63cfc98dcaff9d"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.1.2/trb_0.1.2_darwin_amd64.tar.gz"
+      sha256 "82bf22c2219be267150a19fbbe42ca9d0f992f139b3b0feb0179384490c61a87"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.1.1/trb_0.1.1_linux_arm64.tar.gz"
-      sha256 "f1dcff9f73e0a0684dfa1ee6261838970fab19bcbb395d67ab0df55ba1db369b"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.1.2/trb_0.1.2_linux_arm64.tar.gz"
+      sha256 "e0d51b71fda305778b8c85ed1a0a58b915f2fee1d654d391fc09e1f0a48bc081"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.1.1/trb_0.1.1_linux_amd64.tar.gz"
-      sha256 "062dccdf37e3fb9e6358d269dd54bc04dafa617dd033fbe533d203230e81cd0c"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.1.2/trb_0.1.2_linux_amd64.tar.gz"
+      sha256 "14b99065cfcd98bd41b2e7a84b14766be55eda43dbd161bc2e9b6b3ce50b0c44"
     end
   end
 
