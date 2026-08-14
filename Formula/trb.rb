@@ -5,23 +5,23 @@ class Trb < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.2.4/trb_0.2.4_darwin_arm64.tar.gz"
-      sha256 "a5e5c7a5d7d5787e61738c7325ca0a862c12b7b40195d8fbeba45948494415e1"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.2.5/trb_0.2.5_darwin_arm64.tar.gz"
+      sha256 "2de6cf7235ae7e9f37488f987ab0ade11a9a2be130522d424086facb826486e8"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.2.4/trb_0.2.4_darwin_amd64.tar.gz"
-      sha256 "2ba6e93e09309413c6ca66733220abc19940b6ec2d9dd48687cb9c50a40b6b2a"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.2.5/trb_0.2.5_darwin_amd64.tar.gz"
+      sha256 "3e3ff00b28cfd3571f852f752f774a7fb8a220f58e8d226ee5a2b6f630c1e035"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.2.4/trb_0.2.4_linux_arm64.tar.gz"
-      sha256 "814d3781eeaf814bd209f5e8ce010a7ddfd1a65b51bb838f1d2e6597eee1aa71"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.2.5/trb_0.2.5_linux_arm64.tar.gz"
+      sha256 "7319073e05b945724088462d9299f09cb2a84287abb7059583bf364f507ca0be"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.2.4/trb_0.2.4_linux_amd64.tar.gz"
-      sha256 "b7e908c91a82e2112720785db468124a4007491a0b78fa8ee0e5e6baed87c612"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.2.5/trb_0.2.5_linux_amd64.tar.gz"
+      sha256 "17d166d2998388eed6fe9486a768b7e1f54845aec28b696d0e9b90fc2373a1c4"
     end
   end
 
@@ -30,7 +30,7 @@ class Trb < Formula
   end
 
   test do
-    assert_match "trb #{version}", shell_output("#{bin}/trb version")
+    assert_equal version.to_s, shell_output("#{bin}/trb version").strip
 
     (testpath/"trbconfig.jsonc").write <<~JSON
       {
