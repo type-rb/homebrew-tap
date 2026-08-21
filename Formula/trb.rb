@@ -5,23 +5,23 @@ class Trb < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.3.11/trb_0.3.11_darwin_arm64.tar.gz"
-      sha256 "572ee646cc377961385d06a77a098807e30e34e8e1bb717bf1ca368d6e675af9"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.3.12/trb_0.3.12_darwin_arm64.tar.gz"
+      sha256 "906086685143bed2e8672b101a5b4dabf4a0434e587be5d6155b6afc665917c8"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.3.11/trb_0.3.11_darwin_amd64.tar.gz"
-      sha256 "e70359315a2f5312d34d6f08c960ca755b5fd59375773719d18ae1b666fcf2da"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.3.12/trb_0.3.12_darwin_amd64.tar.gz"
+      sha256 "12eefe650d4442d1c0c0df6e8b7a4d3cb21e24e208475822f3cf0b261539e877"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.3.11/trb_0.3.11_linux_arm64.tar.gz"
-      sha256 "df634878bff0559b2595104ddf79f8a2d860ae48e5192a438cf2fe7f115f4537"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.3.12/trb_0.3.12_linux_arm64.tar.gz"
+      sha256 "55e0cb4c056dee3d64cc53015f55928e793cd86c7ffbbd63a948c574df351896"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.3.11/trb_0.3.11_linux_amd64.tar.gz"
-      sha256 "3f62850451c13ff4c4c2594f7789c7475fdfc580fcc847b609ee01e78b6b2296"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.3.12/trb_0.3.12_linux_amd64.tar.gz"
+      sha256 "f0d947d679823168b0adb47c0a8ccde11f5ff6da102f1ca2c9b5fcf7ba6efb0a"
     end
   end
 
@@ -42,7 +42,7 @@ class Trb < Formula
         "packageManagement": "external",
         "go": {
           "module": "example.com/brew-smoke-test",
-          "version": "1.26",
+          "version": "1.27",
           "rootPackage": "main"
         }
       }
