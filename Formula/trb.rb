@@ -5,23 +5,23 @@ class Trb < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.3.17/trb_0.3.17_darwin_arm64.tar.gz"
-      sha256 "c18ab2e6bf7eee34ce666e60ec56ca47448a18abb8b09e1da1c9eccd848edc38"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.3.18/trb_0.3.18_darwin_arm64.tar.gz"
+      sha256 "6403b079ff2b1fe282bd91011f47c6ca36501272cb7174a02222d7ddbd7f065a"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.3.17/trb_0.3.17_darwin_amd64.tar.gz"
-      sha256 "ced4cbecd53adabd01124e23030bdbd9f3562e43bc237712c6844edb87e05528"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.3.18/trb_0.3.18_darwin_amd64.tar.gz"
+      sha256 "1041f446e11d3174689ccebf234b726675fa1610b20ad6b17332583b9d8f92f9"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.3.17/trb_0.3.17_linux_arm64.tar.gz"
-      sha256 "49a980034d4b1856e7e620f391f3a8302f54907cd47fae92d24859b54694a5bb"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.3.18/trb_0.3.18_linux_arm64.tar.gz"
+      sha256 "1e0045360b200466d73f121a3f4f15665c9144e7a2cfb90c77d02c86baf58409"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.3.17/trb_0.3.17_linux_amd64.tar.gz"
-      sha256 "659330c57191c50373d0b253505474dcc30de9f4d4b9cfc587d81fc1d04663b6"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.3.18/trb_0.3.18_linux_amd64.tar.gz"
+      sha256 "1d807f58f2c4eae00ad8f8b1c25cd38ef5bb2accccdfadce1d7597a58b967653"
     end
   end
 
