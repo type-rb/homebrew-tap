@@ -5,23 +5,23 @@ class Trb < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.4.8/trb_0.4.8_darwin_arm64.tar.gz"
-      sha256 "71b68a7e3a6749ca48d5c3f48b5639fe303baab370a6b3c1de6797752f5fee00"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.4.9/trb_0.4.9_darwin_arm64.tar.gz"
+      sha256 "8415bfbfe4b0cf630c8c91b0615b5e9ae7cf23efbb0bf4e43f405946facf09cd"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.4.8/trb_0.4.8_darwin_amd64.tar.gz"
-      sha256 "8f5928d4d987062afc649a04654d8fd6fb54f4cda7e0a41b70cbcfe3bf7cce1c"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.4.9/trb_0.4.9_darwin_amd64.tar.gz"
+      sha256 "6c59144aeab6af5012ca2097d43b32a8ae71fa98de3b050dd7ce0800daba33cd"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.4.8/trb_0.4.8_linux_arm64.tar.gz"
-      sha256 "96b081c915bdf4acdc1ef6fd4704b2547c0959ee17fb2309e504d2e2515c0410"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.4.9/trb_0.4.9_linux_arm64.tar.gz"
+      sha256 "d090ddb4df82778c2656ae6af95a6b3f12e03814d52971eff7394b7c0c9b68c4"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb/releases/download/v0.4.8/trb_0.4.8_linux_amd64.tar.gz"
-      sha256 "5b4ede421e7145b257491ff9e60063db9dcc290322a5ad1148a9429e671d0527"
+      url "https://github.com/type-rb/type-rb/releases/download/v0.4.9/trb_0.4.9_linux_amd64.tar.gz"
+      sha256 "8d1c04491957404300f922632089d343a212fca27223e6b6b0fecfe592cd3d5d"
     end
   end
 
@@ -42,8 +42,7 @@ class Trb < Formula
         "packageManagement": "external",
         "go": {
           "module": "example.com/brew-smoke-test",
-          "version": "1.27",
-          "rootPackage": "main"
+          "version": "1.27"
         }
       }
     JSON
@@ -59,7 +58,9 @@ class Trb < Formula
 
     system bin/"trb", "fmt", testpath/"src/main.trb"
     system bin/"trb", "build", "--config", testpath/"trbconfig.jsonc"
-    assert_path_exists testpath/"build/main.go"
-    assert_match "fmt.Println(\"installed with Homebrew\")", (testpath/"build/main.go").read
+    entries = Dir[testpath/"build/trb/entry/*/main.go"]
+    assert_equal 1, entries.length
+    sources = Dir[testpath/"build/trb/application/*.go"].map { |path| File.read(path) }.join("\n")
+    assert_match "fmt.Println(\"installed with Homebrew\")", sources
   end
 end
