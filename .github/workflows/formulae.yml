@@ -1,0 +1,71 @@
+name: Install and upgrade TypeRB
+
+on:
+  pull_request:
+    paths: ["Formula/**", ".github/workflows/formulae.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  homebrew:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            native: true
+          - runner: ubuntu-24.04-arm
+            native: true
+          - runner: ubuntu-24.04
+            native: false
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: "1"
+      HOMEBREW_NO_ANALYTICS: "1"
+      HOMEBREW_NO_INSTALL_CLEANUP: "1"
+      NATIVE_HOST: ${{ matrix.native }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: Homebrew/actions/setup-homebrew@d482da0e602890d3160aade42e72c8556103bf04
+        with:
+          core: false
+          cask: false
+      - name: Install the public v0.4 baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          brew tap type-rb/tap
+          tap="$(brew --repository type-rb/tap)"
+          baseline=fb69b467dc562094b1f1ebce731ecaf9eeb633c2
+          git show "$baseline:Formula/trbg.rb" > "$tap/Formula/trbg.rb"
+          git show "$baseline:Formula/trb.rb" > "$tap/Formula/trb.rb"
+          brew install type-rb/tap/trb type-rb/tap/trbg
+          test "$(trb --version)" = 0.4.11
+          test "$(trbg --version)" = 0.4.11
+      - name: Upgrade the Go companion
+        shell: bash
+        run: |
+          set -euo pipefail
+          tap="$(brew --repository type-rb/tap)"
+          cp Formula/trbg.rb "$tap/Formula/trbg.rb"
+          brew upgrade type-rb/tap/trbg
+          brew test type-rb/tap/trbg
+      - name: Upgrade to Native and test a clean install
+        if: env.NATIVE_HOST == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          tap="$(brew --repository type-rb/tap)"
+          cp Formula/trb.rb "$tap/Formula/trb.rb"
+          brew upgrade type-rb/tap/trb
+          brew test type-rb/tap/trb
+          printf '40 + 2\n:quit\n' | trb repl | grep -F '42 : Integer'
+          printf '40 + 2\n:quit\n' | trbg repl | grep -F '42 : Integer'
+          brew uninstall --force type-rb/tap/trb
+          brew install type-rb/tap/trb
+          brew test type-rb/tap/trb type-rb/tap/trbg
