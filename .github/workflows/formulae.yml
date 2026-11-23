@@ -60,7 +60,7 @@ jobs:
         run: |
           set -euo pipefail
           tap="$(brew --repository type-rb/tap)"
-          cp Formula/trbg.rb "$tap/Formula/trbg.rb"
+          git show HEAD:Formula/trbg.rb > "$tap/Formula/trbg.rb"
           brew upgrade type-rb/tap/trbg
           brew test type-rb/tap/trbg
       - name: Upgrade to Native and test a clean install
@@ -69,7 +69,7 @@ jobs:
         run: |
           set -euo pipefail
           tap="$(brew --repository type-rb/tap)"
-          cp Formula/trb.rb "$tap/Formula/trb.rb"
+          git show HEAD:Formula/trb.rb > "$tap/Formula/trb.rb"
           brew upgrade type-rb/tap/trb
           brew test type-rb/tap/trb
           printf '40 + 2\n:quit\n' | trb repl | grep -F '42 : Integer'
