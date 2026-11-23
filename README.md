@@ -8,7 +8,8 @@ brew upgrade type-rb/tap/trb
 ```
 
 The `trb` formula follows TypeRB's v0.5 alpha releases until the stable
-v0.5.0 release. Native executable builds use the system C toolchain.
+v0.5.0 release. Native executable builds use the system C toolchain and
+require `ld.lld` on Linux.
 
 Install the Go implementation on Arm64 or x86-64 macOS and Linux:
 

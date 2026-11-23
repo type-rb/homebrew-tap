@@ -35,6 +35,14 @@ jobs:
         with:
           core: false
           cask: false
+      - name: Prepare the system linker
+        if: runner.os == 'Linux' && env.NATIVE_HOST == 'true'
+        shell: bash
+        run: |
+          if ! command -v ld.lld; then
+            sudo apt-get update
+            sudo apt-get install -y lld
+          fi
       - name: Install the public v0.4 baseline
         shell: bash
         run: |
