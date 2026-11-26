@@ -55,6 +55,20 @@ jobs:
           brew install type-rb/tap/trb type-rb/tap/trbg
           test "$(trb --version)" = 0.4.11
           test "$(trbg --version)" = 0.4.11
+      - name: Install the public alpha.1 baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          tap="$(brew --repository type-rb/tap)"
+          baseline=75557b491be0dd37a64ea1dfe5c189e36525771d
+          git show "$baseline:Formula/trbg.rb" > "$tap/Formula/trbg.rb"
+          brew upgrade type-rb/tap/trbg
+          test "$(trbg -v)" = 0.5.0-alpha.1
+          if [[ "$NATIVE_HOST" == true ]]; then
+            git show "$baseline:Formula/trb.rb" > "$tap/Formula/trb.rb"
+            brew upgrade type-rb/tap/trb
+            trb --version | grep -F 'trb 0.5.0-alpha.1 '
+          fi
       - name: Upgrade the Go companion
         shell: bash
         run: |
@@ -63,7 +77,7 @@ jobs:
           git show HEAD:Formula/trbg.rb > "$tap/Formula/trbg.rb"
           brew upgrade type-rb/tap/trbg
           brew test type-rb/tap/trbg
-      - name: Upgrade to Native and test a clean install
+      - name: Upgrade Native and test a clean install
         if: env.NATIVE_HOST == 'true'
         shell: bash
         run: |
@@ -72,6 +86,7 @@ jobs:
           git show HEAD:Formula/trb.rb > "$tap/Formula/trb.rb"
           brew upgrade type-rb/tap/trb
           brew test type-rb/tap/trb
+          test "$(trb -v)" = "$(trb --version)"
           printf '40 + 2\n:quit\n' | trb repl | grep -F '42 : Integer'
           printf '40 + 2\n:quit\n' | trbg repl | grep -F '42 : Integer'
           brew uninstall --force type-rb/tap/trb

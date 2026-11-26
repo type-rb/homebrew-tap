@@ -1,28 +1,28 @@
 class Trbg < Formula
   desc "Go implementation of TypeRB"
   homepage "https://github.com/type-rb/type-rb-go"
-  version "0.5.0-alpha.1"
+  version "0.5.0-alpha.2"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/type-rb/type-rb-go/releases/download/v0.5.0-alpha.1/trbg_0.5.0-alpha.1_darwin_arm64.tar.gz"
-      sha256 "a1cf8cda1750ade369a4ec62328d4eb5dbc6a10ffdc4e379287ad7d4bed366e5"
+      url "https://github.com/type-rb/type-rb-go/releases/download/v0.5.0-alpha.2/trbg_0.5.0-alpha.2_darwin_arm64.tar.gz"
+      sha256 "0f38356e4319c37493744aecd3b496c214191970f659935058601d827b91b7dd"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb-go/releases/download/v0.5.0-alpha.1/trbg_0.5.0-alpha.1_darwin_amd64.tar.gz"
-      sha256 "1de6cc557003066af02d42d36b70bba24152e640ef245c4b51f2e7eeaf607cb0"
+      url "https://github.com/type-rb/type-rb-go/releases/download/v0.5.0-alpha.2/trbg_0.5.0-alpha.2_darwin_amd64.tar.gz"
+      sha256 "1d4ae31364369eccefcd5162631564c34755d190d1766aa327221bb91eaf6ebe"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/type-rb/type-rb-go/releases/download/v0.5.0-alpha.1/trbg_0.5.0-alpha.1_linux_arm64.tar.gz"
-      sha256 "df9bcfba5fb0c14eda1f8ed547dab5a8604b2755dce0cdda627d35921a3d5c07"
+      url "https://github.com/type-rb/type-rb-go/releases/download/v0.5.0-alpha.2/trbg_0.5.0-alpha.2_linux_arm64.tar.gz"
+      sha256 "33922482c06f12f3d0bfedc5dc0ea19f95483121f444b504fc886f58464984ff"
     end
     on_intel do
-      url "https://github.com/type-rb/type-rb-go/releases/download/v0.5.0-alpha.1/trbg_0.5.0-alpha.1_linux_amd64.tar.gz"
-      sha256 "4d7e86f5323c7cf6330bf36709698de730459533852b6c7111d53253027ad546"
+      url "https://github.com/type-rb/type-rb-go/releases/download/v0.5.0-alpha.2/trbg_0.5.0-alpha.2_linux_amd64.tar.gz"
+      sha256 "a73428ae2f9d58eb57b0fbd55b77324091e40fd6ee6dccc4e163f2c915be81cf"
     end
   end
 
