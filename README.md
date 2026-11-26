@@ -19,7 +19,7 @@ brew install type-rb/tap/trbg
 
 Both commands can be installed together. Use `trbg` for Go, Ruby, and
 TypeScript source workflows. See the
-[Native release notes](https://github.com/type-rb/type-rb/releases/tag/v0.5.0-alpha.1)
+[Native release notes](https://github.com/type-rb/type-rb/releases/tag/v0.5.0-alpha.2)
 and the [Go release archives](https://github.com/type-rb/type-rb-go/releases).
 
 The [v0.4.11 binaries](https://github.com/type-rb/type-rb/releases/tag/v0.4.11)
